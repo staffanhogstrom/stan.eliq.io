@@ -1,0 +1,17 @@
+{
+    "id": "stan.eliq.io",
+    "sdk": 2,
+    "name": {
+        "en": "Eliq.io"
+    },
+    "description": {
+        "en": "Integration with energy meter Eliq"
+    },
+    "category": "energy",
+    "version": "0.0.1",
+    "compatibility": ">=1.5.0",
+    "author": {
+        "name": "Staffan Högström",
+        "email": "staffanhogstrom@gmail.com"
+    }
+}

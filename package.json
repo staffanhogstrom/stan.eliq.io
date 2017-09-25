@@ -1,0 +1,23 @@
+{
+  "name": "stan.eliq.io",
+  "version": "0.0.1",
+  "description": "Integration with energy meter Eliq",
+  "main": "./hello/program.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staffanhogstrom/stan.eliq.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/staffanhogstrom/stan.eliq.io/issues"
+  },
+  "homepage": "https://github.com/staffanhogstrom/stan.eliq.io#readme",
+  "dependencies": {
+    "request": "^2.82.0",
+    "request-promise": "^4.2.2"
+  }
+}

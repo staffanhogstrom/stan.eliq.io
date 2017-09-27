@@ -13,5 +13,48 @@
     "author": {
         "name": "Staffan Högström",
         "email": "staffanhogstrom@gmail.com"
-    }
+    },
+    "images": {
+        "large": "/assets/images/large.png",
+        "small": "/assets/images/small.png"
+    },
+    "drivers": [
+        {
+            "id": "eliq",
+            "name": {
+                "en": "eliq"
+            },
+            "pair": [
+                {
+                    "id": "pair"
+                }
+            ],
+            "images": {
+                "large": "./drivers/eliq/assets/images/large.jpg",
+                "small": "./drivers/eliq/assets/images/small.jpg"
+            },
+            "class": "sensor",
+            "capabilities": [
+                "meter_power"
+            ],
+            "mobile": {
+                "components": [
+                    {
+                        "id": "icon"
+                    },
+                    {
+                        "id": "sensor",
+                        "capabilities": [
+                            "meter_power"
+                        ],
+                        "options": {
+                            "icons": {
+                                "meter_power": "./drivers/eliq/assets/plug-energy.svg"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
 }

@@ -21,16 +21,7 @@
         </p>
 
         <fieldset>
-            <legend>My Settings</legend>
-
-            <div class="field row">
-                <label for="username">Username</label>
-                <input id="username" type="text" value="" />
-            </div>
-            <div class="field row">
-                <label for="password">Password</label>
-                <input id="password" type="password" value="" />
-            </div>
+            <legend>Settings</legend>
             <div class="field row">
                 <label for="token">Eliq Token</label>
                 <input id="token" type="text" value="" />
@@ -47,36 +38,16 @@
             // Tell Homey we're ready to be displayed
             Homey.ready();
 
-            var usernameElement = document.getElementById('username');
-            var passwordElement = document.getElementById('password');
             var tokenElement = document.getElementById('token');
             
             var saveElement = document.getElementById('save');
-
-            Homey.get('username', function( err, username ) {
-               if( err ) return Homey.alert( err );
-               usernameElement.value = username;
-            });
-
-            Homey.get('password', function( err, password ) {
-               if( err ) return Homey.alert( err );
-               passwordElement.value = password;
-            });
 
             Homey.get('token', function( err, token ) {
                if( err ) return Homey.alert( err );
                tokenElement.value = token;
             });
 
-
             saveElement.addEventListener('click', function(e) {
-
-                Homey.set('username', usernameElement.value, function( err ){
-                    if( err ) return Homey.alert( err );
-                });
-                Homey.set('password', passwordElement.value, function( err ){
-                    if( err ) return Homey.alert( err );
-                });
                 Homey.set('token', tokenElement.value, function( err ){
                     if( err ) return Homey.alert( err );
                 });

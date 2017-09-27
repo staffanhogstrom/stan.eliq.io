@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const Homey = require('homey');
 const Eliq = require('./eliq.js');
@@ -11,11 +11,11 @@ class EliqDevice extends Homey.Device {
         this.log('class:', this.getClass());
 
         // register a capability listener
-        this.registerCapabilityListener('meter_power', this.onMeterPowerUpdated.bind(this))
+        this.registerCapabilityListener('meter_power', this.onMeterPowerUpdated.bind(this));
 
 
         //Todo also set poll interval.
-        const token = Homey.ManagerSettings.get('token')
+        const token = Homey.ManagerSettings.get('token');
         this.log('Token: ' + token);
 
         this.eliq = new Eliq(token);
@@ -30,7 +30,8 @@ class EliqDevice extends Homey.Device {
             //Todo: should we stop if we catch errors.
             this.log('error on pollingmethod');
         }).then(() => {
-            this.log('succes on onPOllingmethod. Setting interval');
+            //Success. Lets just continue.
+            this.log('succes on onPollingMethod. Setting interval');
         });
     }
 
@@ -45,12 +46,12 @@ class EliqDevice extends Homey.Device {
         clearInterval(this.intervalId);
     }
 
-    onMeterPowerUpdated(value, opts){
+    onMeterPowerUpdated() {
         this.log('onMeterPowerUpdated');
     }
 
     // this method is called when the Device has requested a state change (turned on or off)
-    onMeterPower(value, opts) {
+    onMeterPower() {
 
         this.log('onMeterPower start');
         return new Promise((resolve, reject) => {
@@ -68,6 +69,9 @@ class EliqDevice extends Homey.Device {
                     //Failed so recject
                     reject();
                 }
+            }).catch(() => {
+                //Failed so reject
+                reject();
             });
         });
     }

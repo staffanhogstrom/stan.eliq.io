@@ -1,15 +1,14 @@
-"use strict";
+'use strict';
 
-const Homey = require('homey');
-const http = require("http.min");
+const http = require('http.min');
 const EventEmitter = require('events').EventEmitter;
 
-var baseUrl = "https://my.eliq.io/api/";
+const baseUrl = 'https://my.eliq.io/api/';
 
 class Eliq extends EventEmitter {
 
     /**
-     * Toon constructor, provide the API key and secret.
+     * Eliq constructor, provide the API token
      * @constructor
      */
     constructor(token) {
@@ -26,7 +25,7 @@ class Eliq extends EventEmitter {
 
     getDataNow() {
         return http({
-            uri: "https://my.eliq.io/api/datanow",
+            uri: baseUrl + 'datanow',
             json: true,
             query: {
                 accesstoken: this.accessToken
@@ -36,7 +35,7 @@ class Eliq extends EventEmitter {
 
     getHistoricData() {
         return http({
-            uri: "https://my.eliq.io/api/data",
+            uri: baseUrl + 'data',
             json: true,
             query: {
                 accesstoken: this.accessToken,

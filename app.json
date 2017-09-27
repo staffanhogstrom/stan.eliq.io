@@ -29,6 +29,7 @@
                     "id": "pair"
                 }
             ],
+            
             "images": {
                 "large": "./drivers/eliq/assets/images/large.jpg",
                 "small": "./drivers/eliq/assets/images/small.jpg"

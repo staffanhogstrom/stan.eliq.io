@@ -9,9 +9,6 @@ class MyApp extends Homey.App {
 		this.log('Eliq is running...');
 		
 	}
-	
-
-	
 }
 
 module.exports = MyApp;

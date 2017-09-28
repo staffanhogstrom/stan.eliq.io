@@ -11,7 +11,7 @@ class EliqDevice extends Homey.Device {
         this.log('class:', this.getClass());
 
         // register a capability listener
-        this.registerCapabilityListener('meter_power', this.onMeterPowerUpdated.bind(this));
+        this.registerCapabilityListener('measure_power', this.onMeasurePowerUpdated.bind(this));
 
 
         //Todo also set poll interval.
@@ -26,7 +26,7 @@ class EliqDevice extends Homey.Device {
 
     onPollingMethod() {
         this.log('onPollingMethod start');
-        this.onMeterPower().catch(() => {
+        this.onMeasurePower().catch(() => {
             //Todo: should we stop if we catch errors.
             this.log('error on pollingmethod');
         }).then(() => {
@@ -46,14 +46,14 @@ class EliqDevice extends Homey.Device {
         clearInterval(this.intervalId);
     }
 
-    onMeterPowerUpdated() {
-        this.log('onMeterPowerUpdated');
+    onMeasurePowerUpdated() {
+        this.log('onMeasurePowerUpdated');
     }
 
     // this method is called when the Device has requested a state change (turned on or off)
-    onMeterPower() {
+    onMeasurePower() {
 
-        this.log('onMeterPower start');
+        this.log('onMeasurePower start');
         return new Promise((resolve, reject) => {
             this.eliq.getDataNow().then((result) => {
                 //success so lets get data.
@@ -62,7 +62,7 @@ class EliqDevice extends Homey.Device {
                 if (result.response.statusCode === 200 || result.response.statusCode === 201) {
 
                     let power = result.data.power;
-                    this.setCapabilityValue('meter_power', power);
+                    this.setCapabilityValue('measure_power', power);
 
                     resolve();
                 } else {

@@ -36,7 +36,7 @@
             },
             "class": "sensor",
             "capabilities": [
-                "meter_power"
+                "measure_power"
             ],
             "mobile": {
                 "components": [
@@ -46,11 +46,11 @@
                     {
                         "id": "sensor",
                         "capabilities": [
-                            "meter_power"
+                            "measure_power"
                         ],
                         "options": {
                             "icons": {
-                                "meter_power": "./drivers/eliq/assets/plug-energy.svg"
+                                "measure_power": "./drivers/eliq/assets/plug-energy.svg"
                             }
                         }
                     }

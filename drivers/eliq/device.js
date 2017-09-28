@@ -20,18 +20,20 @@ class EliqDevice extends Homey.Device {
 
         this.eliq = new Eliq(token);
 
-        //last we start polling
-        this.intervalId = setInterval(this.onPollingMethod.bind(this), 30000);
+        //last we do a poll and after succes we start interval.
+        this.onMeasurePower().then(()=>{
+            this.intervalId = setInterval(this.onPollingMethod.bind(this), 30000);
+        });
     }
 
     onPollingMethod() {
         this.log('onPollingMethod start');
         this.onMeasurePower().catch(() => {
-            //Todo: should we stop if we catch errors.
+            //Todo: should we stop if we catch errors?
             this.log('error on pollingmethod');
         }).then(() => {
             //Success. Lets just continue.
-            this.log('succes on onPollingMethod. Setting interval');
+            this.log('succes on onPollingMethod.');
         });
     }
 
